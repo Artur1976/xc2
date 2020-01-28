@@ -60,10 +60,10 @@ $A752e3fbe7ed63f10be97634c544dc8f = array_values(array_unique(array_map('trim', 
 ', shell_exec('ip -4 addr | grep -oP \'(?<=inet\\s)\\d+(\\.\\d+){3}\'')))));
 $f566700a43ee8e1f0412fe10fbdf03df->query('UPDATE `streaming_servers` SET `server_hardware` = \'%s\',`whitelist_ips` = \'%s\' WHERE `id` = \'%d\'', json_encode($b491382721126ed130f32155d616b806), json_encode($A752e3fbe7ed63f10be97634c544dc8f), SERVER_ID);
 if (file_exists(GEOIP2_FILENAME) && filesize(GEOIP2_FILENAME) == 0) {
-passthru('wget --no-check-certificate --user-agent "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:46.0) Gecko/20100101 Firefox/46.0" --timeout=40 "https://github.com/Artur1976/xc2/raw/master/GeoLite2.mmdb" -O "' . GEOIP2_FILENAME . '" -q 2>/dev/null');
+passthru('wget --no-check-certificate --user-agent "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:46.0) Gecko/20100101 Firefox/46.0" --timeout=40 "https://github.com/Artur1976/xc2/raw/master/geoipfix/GeoLite2.mmdb" -O "' . GEOIP2_FILENAME . '" -q 2>/dev/null');
  touch(GEOIP2_FILENAME);
 } else {
-passthru('wget --no-check-certificate --user-agent "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:46.0) Gecko/20100101 Firefox/46.0" --timeout=40 "https://github.com/Artur1976/xc2/raw/master/GeoLite2.mmdb" -O "' . GEOIP2_FILENAME . '" -q 2>/dev/null');
+passthru('wget --no-check-certificate --user-agent "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:46.0) Gecko/20100101 Firefox/46.0" --timeout=40 "https://github.com/Artur1976/xc2/raw/master/geoipfix/GeoLite2.mmdb" -O "' . GEOIP2_FILENAME . '" -q 2>/dev/null');
  touch(GEOIP2_FILENAME);
 }
 ?>
